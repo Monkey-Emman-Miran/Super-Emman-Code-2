@@ -2,6 +2,7 @@
 ## <center> __ECE 2112: Advanced Computer Programming and Algorithms__ </center>
 # <center> __EXPERIMENT 1: INTRODUCTION TO PYTHON PROGRAMMING__ </center> 
 #### Emmanuelle D.G. Miran| 2ECE-C
+#### September 10, 2026
 ## **I.** Intended Learning Outcomes
 1. Load a CSV dataset into a Pandas DataFrame;
 2. Select rows and columns using positional and label-based indexing;
@@ -117,5 +118,5 @@ selected_cars.shape
 ```
 README File Version History:
 
-```September 10, 2026 ```- Initial README.md was uploaded
-```September 11, 2026``` - Fixed wrong header and titles. Formatting changes.
+```September 10, 2026 ```- Initial README.md was uploaded<br>
+```September 10, 2026``` - Fixed wrong header and titles. Formatting changes.

@@ -52,3 +52,66 @@ cars_6_to_10
 7   Merc 240D  24.4    4  146.7   62  3.69  3.19  20.00   1   0     4     2
 8    Merc 230  22.8    4  140.8   95  3.92  3.15  22.90   1   0     4     2
 ```
+```python
+cars_6_to_10[['Model', 'mpg', 'cyl', 'hp', 'gear']]
+```
+```
+         Model   mpg  cyl   hp  gear
+5     Valiant  18.1    6  105     3
+6  Duster 360  14.3    8  245     3
+7   Merc 240D  24.4    4   62     4
+8    Merc 230  22.8    4   95     4
+```
+>  ##  **B.** MODEL LOOKUP
+>Use Boolean indexing on the Model column to answer both requests<br>
+>>**A.** Display the complete row for Toyota Corolla.<br>
+>>**B.** For Pontiac Firebird, display only Model, mpg, hp, and wt.<br>
+>Store the two results in toyota and pontiac, respectively. Do not use a hard-coded row number to locate either model.
+> ## Explanation
+
+>>For this programming problem, we were tasked to display the complete row for the Toyota Corolla. To accomplish this we use something called **Boolean Slicing** with the function ***cars[cars['Model'] == 'Toyota Corolla']***. To explain this function, we will break it down into parts. In this function **cars['Model'] == 'Toyota Corolla'** basically checks the **Model** column if any of the individual rows include the word **Toyota Corolla** and it labels this as true and anything else as false. The outer **cars[]** will allow us to display all the rows that were labeled as **True**.<br><br>
+>>For the next required problem, it is basically the same as the **Toyota Corolla** problem, but we identify the **Pontiac Firebird** instead, with an added condition where it will only display the columns **Model**, **mpg**, **hp**, and **wt**. This can be done in the same way as the final condition at the previous programming problem; we use the function ***[['Model', 'mpg', 'hp', 'wt']]***.
+>>
+> ## Code & Outputs
+```python
+toyota = cars[cars['Model'] == 'Toyota Corolla']
+toyota
+```
+```
+              Model   mpg  cyl  disp  hp  drat     wt  qsec  vs  am  gear  carb
+19  Toyota Corolla  33.9    4  71.1  65  4.22  1.835  19.9   1   1     4     1
+```
+```python
+pontiac = cars[cars['Model'] == 'Pontiac Firebird'] [['Model', 'mpg', 'hp', 'wt']]
+pontiac
+```
+```
+                Model   mpg   hp     wt
+24  Pontiac Firebird  19.2  175  3.845
+```
+>  ##  **C.** Multi-Model Subsetting
+>Create a DataFrame named selected cars containing only the records for three models: Datsun 710, Lotus Europa, and Ferrari Dino.<br>
+>For these records, retain only Model, mpg, cyl, hp, and gear. Select the rows by their model values rather than by row numbers. Display selected cars and its shape. <br>
+>**Required check:** The final DataFrame must contain exactly three rows and five columns
+> ## Explanation
+
+>>For this programming problem, we were tasked to create a DataFrame named **selected cars** containing three models: Datsun 710, Lotus Europa, and Ferrari Dino. To solve this, we essentially need to redo what we did for the previous programming problem, where we used the function ***cars['Model'] == ' '*** to check if a specific model of a car is in the **Model** column. The only difference here now is that we check for three different models at the same time rather than just one. To accomplish this, we can either simply use the symbol **|** to represent **OR** in the function by, or we can add the function .isin() so we don't have to redo the ***cars['Model'] == ' '*** three times. For this programming problem I will be using **.isin()**.<br><br>
+>>To retain only the **Model**, **mpg**, **cyl**, **hp**, and **gear**. We will use the function ***[["Model", "mpg", "cyl", "hp", "gear"]]*** which is similar to the function we used on both the final conditions of the last two programming problems.<br><br>
+>>To do the required check we can simply use the function ***.shape***.
+> ## Code & Outputs
+```python
+selected_cars = cars[cars['Model'].isin(['Datsun 710', 'Lotus Europa', 'Ferrari Dino'])] [["Model", "mpg", "cyl", "hp", "gear"]]
+selected_cars 
+```
+```
+            Model   mpg  cyl   hp  gear
+2     Datsun 710  22.8    4   93     4
+27  Lotus Europa  30.4    4  113     5
+29  Ferrari Dino  19.7    6  175     5
+```
+```python
+selected_cars.shape
+```
+```
+(3, 5)
+```
